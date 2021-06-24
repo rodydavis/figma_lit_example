@@ -3,13 +3,16 @@
   "version": "1.0.0",
   "description": "Lit Figma Plugin",
   "dependencies": {
+    "@assemblyscript/loader": "^0.19.3",
     "lit": "^2.0.0-rc.1"
   },
   "devDependencies": {
     "@figma/plugin-typings": "^1.23.0",
+    "assemblyscript": "^0.19.3",
+    "css-loader": "^5.2.4",
     "html-webpack-inline-source-plugin": "^1.0.0-beta.2",
     "html-webpack-plugin": "^4.3.0",
-    "css-loader": "^5.2.4",
+    "js-inline-wasm": "0.0.7",
     "ts-loader": "^8.0.0",
     "typescript": "^4.2.4",
     "url-loader": "^4.1.1",
@@ -20,7 +23,12 @@
     "dev": "npx webpack --mode=development --watch",
     "copy": "mkdir -p lit-plugin && cp ./manifest.json ./lit-plugin/manifest.json && cp ./dist/ui.html ./lit-plugin/ui.html && cp ./dist/code.js ./lit-plugin/code.js",
     "build": "npx webpack --mode=production && npm run copy",
-    "zip": "npm run build && zip -r lit-plugin.zip lit-plugin"
+    "zip": "npm run build && zip -r lit-plugin.zip lit-plugin",
+    "asbuild:untouched": "asc assembly/index.ts --target debug",
+    "asbuild:optimized": "asc assembly/index.ts --target release",
+    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized",
+    "inlinewasm": "inlinewasm build/optimized.wasm --output src/wasm.ts",
+    "test": "node tests"
   },
   "browserslist": [
     "last 1 Chrome versions"

@@ -1,6 +1,7 @@
 lit-plugin
 lib
 dist
+build
 node_modules
 .vscode
 package-lock.json

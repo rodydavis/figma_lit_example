@@ -1,15 +1,17 @@
 import { html, LitElement } from "lit";
-import { customElement, query } from "lit/decorators.js";
+import { customElement, property, query } from "lit/decorators.js";
 
 @customElement("my-app")
 export class MyApp extends LitElement {
+  @property() amount = "5"; // <-- Pass in a value for the number of rectangles to create
   @query("#count") countInput!: HTMLInputElement;
 
   render() {
     return html`
       <div>
         <h2>Rectangle Creator</h2>
-        <p>Count: <input id="count" value="5" /></p>
+        <!-- Pass in the amount to the input value -->
+        <p>Count: <input id="count" value="${this.amount}" /></p>
         <button id="create" @click=${this.create}>Create</button>
         <button id="cancel" @click=${this.cancel}>Cancel</button>
       </div>
