@@ -4,7 +4,7 @@
   "description": "Lit Figma Plugin",
   "dependencies": {
     "@assemblyscript/loader": "^0.19.3",
-    "lit": "^2.0.0-rc.1"
+    "lit": "*"
   },
   "devDependencies": {
     "@figma/plugin-typings": "^1.23.0",
