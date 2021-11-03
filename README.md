@@ -1,6 +1,6 @@
 # Figma + Lit Example
 
-Example of how o build a Figma plugin with Lit.
+Example of how on build a Figma plugin with Lit.
 
 Blog post: https://rodydavis.com/posts/figma-and-lit/
 
